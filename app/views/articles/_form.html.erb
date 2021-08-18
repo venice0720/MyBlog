@@ -1,28 +1,31 @@
-<%= form_with scope: :article, method: :put, url: article_create_path, locale: true do |f|  %>
-  
-    <div> 
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Create new to your list</h1>
+</div>
+<%= form_with scope: :article,  url: article_create_path, locale: true do |f|  %>
+ <div class="container-sm">
+    <div class="mb-3">
         <% if @article.errors.any? %>
         <ul>
             <% @article.errors.full_messages.each do |message| %>
-                <li> <%= message %> </li>
+                <li class="text-danger"> <%= message %> </li>
             <% end %>
         </ul>
     <% end %>
-  
+  </div>
     <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.label :Title,for:"exampleFormControlInput1", class: "form-label" %>
+        <%= f.text_field :name, class: "form-control",id:"exampleFormControlInput1" %>
 
     <div>
 
     <div>
-        <%= f.label :body %>
-        <%= f.text_field :body %>
+        <%= f.label :Notes,for:"exampleFormControlTextarea1",class:"form-label" %>
+        <%= f.text_field :body,class:"form-control",id:"exampleFormControlTextarea1", rows:"3" %>
 
     <div>
 
     <div>
-    <%= f.submit %>
+    <%= f.submit class: "btn-primary" %>
 
     <div>
 
